@@ -1,0 +1,62 @@
+# Default values for antifraud.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: 289609572201.dkr.ecr.us-east-1.amazonaws.com/prod/labs-antifraud-process-engine
+  tag: latest
+  pullPolicy: IfNotPresent
+
+nameOverride: ""
+fullnameOverride: ""
+
+app:
+  version: antifraud-0.0.1-SNAPSHOT
+
+service:
+  type: NodePort
+  port: 80
+
+mysql:
+  imageTag: 5.7.14
+  mysqlDatabase: camunda
+  mysqlUser: camunda_user
+  existingSecret: antifraud-bpmns-mysql
+
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:289609572201:certificate/204e094f-87fe-4c9a-9870-c0c6d076f952
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: instance
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80,"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/subnets: subnet-035baff8e35e5f1ef,subnet-07e861c90bb02ae0e,subnet-096f5d7453ade7860
+    alb.ingress.kubernetes.io/security-groups: sg-08f2e80f28221af86    
+  path: /*
+  hosts:
+    - labs.bpm.prod.meanpugk8.com
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #  cpu: 100m
+  #  memory: 128Mi
+  # requests:
+  #  cpu: 100m
+  #  memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
