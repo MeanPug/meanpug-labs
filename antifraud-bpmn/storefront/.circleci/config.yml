@@ -1,6 +1,6 @@
 defaults: &defaults
   working_directory: ~/workspace/repo
-prod_repo: &prod_repo 289609572201.dkr.ecr.us-east-1.amazonaws.com/prod/checkout
+prod_repo: &prod_repo 289609572201.dkr.ecr.us-east-1.amazonaws.com/prod/labs-antifraud-storefront
 machine_executor: &machine_executor
   machine: true
 python_image: &python_image
@@ -85,7 +85,7 @@ jobs:
       - run:
           name: Upgrade helm package
           command: |
-            KUBECONFIG=~/.kube/config helm upgrade --install meanpug-checkout helm/meanpug-checkout -f helm/prod-values.yaml --force --recreate-pods
+            KUBECONFIG=~/.kube/config helm upgrade --install antifraud-storefront helm/storefront -f helm/prod-values.yaml --force --recreate-pods
 
 workflows:
   version: 2

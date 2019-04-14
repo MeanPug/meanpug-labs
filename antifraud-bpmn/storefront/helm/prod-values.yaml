@@ -3,6 +3,6 @@ environment: prod
 image:
   repository: 289609572201.dkr.ecr.us-east-1.amazonaws.com/prod/labs-antifraud-storefront
 
-#ingress:
-#  annotations:
-#    alb.ingress.kubernetes.io/certificate-arn:
+ingress:
+  annotations:
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:289609572201:certificate/204e094f-87fe-4c9a-9870-c0c6d076f952
