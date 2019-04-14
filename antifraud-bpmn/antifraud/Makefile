@@ -1,5 +1,6 @@
 IMAGE_REPO := 289609572201.dkr.ecr.us-east-1.amazonaws.com/prod/labs-antifraud-process-engine
 IMAGE_TAG := latest
+PACKAGE_VER ?= 0.0.1-SNAPSHOT
 
 .PHONY: build up down shell deploy docker-build docker-push aws-ecr
 
@@ -16,7 +17,7 @@ shell:
 	docker-compose run camunda /bin/bash
 
 docker-build:
-	docker build -t $(IMAGE_REPO):$(IMAGE_TAG) .
+	docker build -t $(IMAGE_REPO):$(IMAGE_TAG) --build-arg PACKAGE_VER=$(PACKAGE_VER) .
 	docker tag $(IMAGE_REPO):$(IMAGE_TAG) $(IMAGE_REPO):$(IMAGE_TAG)
 
 docker-push:

@@ -13,7 +13,7 @@ nameOverride: ""
 fullnameOverride: ""
 
 app:
-  version: antifraud-0.0.1-SNAPSHOT
+  version: antifraud-0.0.2-SNAPSHOT
 
 service:
   type: NodePort
@@ -38,6 +38,7 @@ ingress:
   path: /*
   hosts:
     - labs.bpm.prod.meanpugk8.com
+    - bpm.labs.meanpug.com
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
