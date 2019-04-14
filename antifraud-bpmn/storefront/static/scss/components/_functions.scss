@@ -1,0 +1,4 @@
+// choose a random item from the given list
+@function random-item($item-list) {
+  @return nth($item-list, random(length($item-list)));
+}

@@ -1,0 +1,44 @@
+# Default values for meanpug-minnow.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: 289609572201.dkr.ecr.us-east-1.amazonaws.com/prod/labs-antifraud-storefront
+  tag: latest
+  pullPolicy: Always
+
+nameOverride: ""
+fullnameOverride: ""
+
+application:
+  email_host: smtp.sendgrid.net
+
+service:
+  type: NodePort
+  port: 80
+
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: instance
+    alb.ingress.kubernetes.io/subnets: subnet-035baff8e35e5f1ef,subnet-07e861c90bb02ae0e,subnet-096f5d7453ade7860
+    alb.ingress.kubernetes.io/healthcheck-path: /ht/
+#    alb.ingress.kubernetes.io/certificate-arn:
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80,"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/actions.redirect: '{"Type": "redirect", "RedirectConfig": { "Protocol": "HTTPS", "Port": "443", "StatusCode": "HTTP_301"}}'
+    alb.ingress.kubernetes.io/security-groups: sg-08f2e80f28221af86
+  path: /*
+  hosts:
+    - HOST
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

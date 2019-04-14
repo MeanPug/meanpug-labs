@@ -1,0 +1,17 @@
+.ActionLog {
+  height: 300px;
+  width: 100%;
+  border-top: solid 3px;
+  background: white;
+  position: fixed;
+  bottom: 0;
+  z-index: 2;
+
+  .ActionLog__list {
+    list-style-type: none;
+
+    .ActionLog__item {
+      @include monospace();
+    }
+  }
+}

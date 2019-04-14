@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "storefront.fullname" . }}
+  labels:
+    app: {{ include "storefront.name" . }}
+    app.kubernetes.io/name: {{ include "storefront.name" . }}
+    helm.sh/chart: {{ include "storefront.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+  {{- with .Values.service.annotations }}
+  annotations:
+  {{ toYaml . | indent 4 }}
+  {{- end }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: app
+      protocol: TCP
+  selector:
+    app.kubernetes.io/name: {{ include "storefront.name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
