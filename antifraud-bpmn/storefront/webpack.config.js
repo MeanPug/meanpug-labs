@@ -3,22 +3,13 @@ const webpack = require('webpack');
 const path = require('path');
 
 
-const plugins = [
-    new webpack.ProvidePlugin({
-        $: 'jquery',
-        jQuery: 'jquery'
-    }),
-    new webpack.EnvironmentPlugin({
-        NODE_ENV: null
-    }),
-    new webpack.IgnorePlugin(/jsdom$/)
-];
+const prod = {
+    optimization: {
+        minimize: true
+    }
+};
 
-const productionPlugins = [
-    new webpack.optimize.UglifyJsPlugin()
-];
-
-module.exports = {
+const common = {
     context: __dirname,
 
     devtool: 'inline-sourcemap',
@@ -31,7 +22,7 @@ module.exports = {
     },
 
     entry: {
-        sample: path.resolve(__dirname, "static/js/sample.js"),
+        site: path.resolve(__dirname, "static/js/site.js"),
     },
 
     output: {
@@ -43,17 +34,35 @@ module.exports = {
         rules: [
             {
                 test: /\.jsx?$/,
-                exclude: /node_modules\/(?!(bunnyjs)\/).*/,
+                exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader'
                 }
-            }
+            },
+            {
+                test: /\.ejs$/,
+                use: {
+                    loader: 'ejs-loader'
+                }
+            },
         ]
     },
 
-    externals: {
-        $: 'jquery'
-    },
-
-    plugins: plugins.concat(debug ? [] : productionPlugins)
+    plugins: [
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery'
+        }),
+        new webpack.EnvironmentPlugin({
+            NODE_ENV: null
+        }),
+        new webpack.IgnorePlugin(/jsdom$/)
+    ]
 };
+
+let config = common;
+if (!debug) {
+    config = Object.assign({}, common, prod);
+}
+
+module.exports = config;

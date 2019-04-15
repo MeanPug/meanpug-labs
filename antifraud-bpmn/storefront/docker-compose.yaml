@@ -1,24 +1,23 @@
 version: "3"
 services:
-  mysql:
-    image: mysql:8.0.3
+  app:
+    build:
+      context: .
+      dockerfile: ./docker/app/Dockerfile
     ports:
-      - 3306:3306
+      - 3000:3000
     volumes:
-      - "./data:/var/lib/mysql"
-    environment:
-      MYSQL_ROOT_PASSWORD: letmein
-      MYSQL_DATABASE: camunda
-      MYSQL_USER: camunda_user
-      MYSQL_PASSWORD: letmein
+      - "./src:/code/src"
+      - "./views:/code/views"
+      - "./dist:/code/dist"
+    entrypoint: npm
+    command: ["run", "dev-server"]
 
-  camunda:
-      build:
-        context: .
-      volumes:
-        - "./src:/antifraud/src"
-      ports:
-        - 8080:8080
-      depends_on:
-        - mysql
+  static:
+    build:
+      context: .
+      dockerfile: ./docker/static/Dockerfile
+    volumes:
+      - "./static:/code/static"
+      - "./dist:/code/dist"
 

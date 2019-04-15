@@ -10,36 +10,40 @@
     <title><%= title %></title>
 </head>
 <body>
-    <div class="container">
-        <h1><%= header %></h1>
-
+    <div class="container-fluid">
         <div class="row">
-            <!-- Products -->
+            <div class="col-sm-4 position-relative">
+                <div class="ActionLog">
+                    <ul class="ActionLog__list">
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-sm-8">
+                <h1 class="Header Header--main"><%= header %></h1>
+
+                <div class="row">
+                    <!-- Products -->
+                    <% products.forEach(function(p) { %>
+                    <div class="col-sm-4">
+                        <div class="Product">
+                            <img class="Product__image" src="<%= p.image %>" />
+
+                            <div class="pt-2 px-3">
+                                <strong class="Product__name"><%= p.name %></strong>
+                                <strong class="Product__price d-block" data-val="<%= p.price %>"><%= formatPrice(p.price) %></strong>
+                                <p class="Product__desc pt-2"><%= p.description %></p>
+                            </div>
+
+                            <button class="btn btn-primary btn-block btn-buy py-2 mt-4">Buy</button>
+                        </div>
+                    </div>
+                    <% }) %>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="ActionLog">
-        <ul class="ActionLog__list">
-            <li class="ActionLog__item d-flex align-items-center pt-3">
-                <span class="Arrows">
-                    <i class="Arrows__arrow"></i>
-                    <i class="Arrows__arrow"></i>
-                    <i class="Arrows__arrow"></i>
-                </span>
-
-                <span class="pl-3">This is an item in the log</span>
-            </li>
-
-            <li class="ActionLog__item d-flex pt-3">
-                <span class="Arrows">
-                    <i class="Arrows__arrow"></i>
-                    <i class="Arrows__arrow"></i>
-                    <i class="Arrows__arrow"></i>
-                </span>
-
-                <span class="pl-3">This is another item in the log</span>
-            </li>
-        </ul>
-    </div>
+    <script type="text/javascript" src="/static/site.min.js"></script>
 </body>
 </html>
