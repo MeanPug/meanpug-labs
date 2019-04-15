@@ -1,0 +1,23 @@
+<% if (logs.length > 0) { %>
+    <% logs.forEach(function(log) { %>
+    <li class="ActionLog__item d-flex align-items-center pt-3">
+        <span class="Arrows">
+            <i class="Arrows__arrow"></i>
+            <i class="Arrows__arrow"></i>
+            <i class="Arrows__arrow"></i>
+        </span>
+
+        <span class="pl-3"><%= log.get('message') %></span>
+    </li>
+    <% }) %>
+<% } else { %>
+    <li class="ActionLog__item d-flex align-items-center pt-3">
+        <span class="Arrows">
+            <i class="Arrows__arrow"></i>
+            <i class="Arrows__arrow"></i>
+            <i class="Arrows__arrow"></i>
+        </span>
+
+        <span class="pl-3">Logs will appear here</span>
+    </li>
+<% } %>

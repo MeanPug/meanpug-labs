@@ -12,6 +12,7 @@ services:
       - "./dist:/code/dist"
     entrypoint: npm
     command: ["run", "dev-server"]
+    env_file: .env
 
   static:
     build:
@@ -20,4 +21,8 @@ services:
     volumes:
       - "./static:/code/static"
       - "./dist:/code/dist"
+networks:
+  default:
+    external:
+      name: antifraud_default
 

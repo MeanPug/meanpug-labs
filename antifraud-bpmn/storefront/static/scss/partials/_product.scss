@@ -1,0 +1,15 @@
+.Product {
+  border: solid 1px $gray-300;
+
+  .Product__image {
+    width: 100%;
+  }
+
+  .Product__name {
+    text-transform: uppercase;
+  }
+
+  .Product__desc {
+    font-weight: 300;
+  }
+}

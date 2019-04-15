@@ -7,5 +7,6 @@ try {
 const helpers = require('../lib/helpers');
 
 module.exports = {
-	ENGINE_URL: helpers.getEnv('ENGINE_URL'),
+	BPM_ENGINE_URL: helpers.getEnv('BPM_ENGINE_URL'),
+	BPM_PROCESS_DEFINITION_ID: helpers.getEnv('BPM_PROCESS_DEFINITION_ID'),
 };
