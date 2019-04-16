@@ -5,7 +5,6 @@ RUN mkdir -p /code
 WORKDIR /code
 
 COPY src/ /code/src
-COPY views/ /code/views
 COPY package.json /code
 
 RUN npm install

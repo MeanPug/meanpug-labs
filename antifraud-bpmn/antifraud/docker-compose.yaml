@@ -19,6 +19,7 @@ services:
         - "./src:/antifraud/src"
       ports:
         - 8080:8080
+      env_file: .env.local
       depends_on:
         - mysql
 

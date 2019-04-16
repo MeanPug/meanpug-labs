@@ -23,6 +23,11 @@ spec:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: BPM_ENGINE_URL
+              value: {{ .Values.application.bpm_engine_url | quote }}
+            - name: BPM_PROCESS_DEFINITION_KEY
+              value: {{ .Values.application.bpm_process_definition_key | quote }}
           ports:
             - containerPort: 3000
               protocol: TCP

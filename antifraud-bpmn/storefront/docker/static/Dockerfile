@@ -4,7 +4,7 @@ RUN mkdir -p /code
 
 WORKDIR /code
 
-COPY static/ /code
+COPY static/ /code/static
 COPY package.json /code
 COPY webpack.config.js /code
 COPY Gruntfile.js /code
@@ -12,4 +12,4 @@ COPY Gruntfile.js /code
 RUN npm install
 
 ENTRYPOINT ["npm"]
-CMD ["run", "static"]
+CMD ["run", "dev-static"]

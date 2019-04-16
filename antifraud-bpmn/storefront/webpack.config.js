@@ -26,7 +26,7 @@ const common = {
     },
 
     output: {
-        path: path.resolve(__dirname, "dist"),
+        path: path.resolve(__dirname, "src/dist"),
         filename: "[name].min.js"
     },
 

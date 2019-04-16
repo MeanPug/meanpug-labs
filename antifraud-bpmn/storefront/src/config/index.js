@@ -8,5 +8,5 @@ const helpers = require('../lib/helpers');
 
 module.exports = {
 	BPM_ENGINE_URL: helpers.getEnv('BPM_ENGINE_URL'),
-	BPM_PROCESS_DEFINITION_ID: helpers.getEnv('BPM_PROCESS_DEFINITION_ID'),
+	BPM_PROCESS_DEFINITION_KEY: helpers.getEnv('BPM_PROCESS_DEFINITION_KEY'),
 };

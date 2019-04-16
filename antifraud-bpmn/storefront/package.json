@@ -4,10 +4,12 @@
   "description": "Yeoman generated node project for the storefront project",
   "main": "index.js",
   "scripts": {
-    "build": "babel src -d build",
-    "static-webpack": "webpack --mode development --watch",
-    "static-sass": "grunt dev",
-    "static": "npm-run-all -p static-*",
+    "build-static-webpack": "NODE_ENV=production webpack --mode production",
+    "build-static-sass": "grunt",
+    "build-static": "npm-run-all -p build-static-*",
+    "dev-static-webpack": "webpack --mode development --watch",
+    "dev-static-sass": "grunt dev",
+    "dev-static": "npm-run-all -p dev-static-*",
     "dev-server": "nodemon src/app.js"
   },
   "repository": {
@@ -49,8 +51,9 @@
     "ejs-loader": "^0.3.3",
     "grunt": "^1.0.4",
     "grunt-cli": "^1.3.2",
-    "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-watch": "^1.1.0",
+    "grunt-sass": "^3.0.2",
+    "node-sass": "^4.11.0",
     "nodemon": "^1",
     "npm-run-all": "^4.1.5",
     "webpack": "^4.30.0",

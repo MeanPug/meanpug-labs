@@ -8,8 +8,6 @@ services:
       - 3000:3000
     volumes:
       - "./src:/code/src"
-      - "./views:/code/views"
-      - "./dist:/code/dist"
     entrypoint: npm
     command: ["run", "dev-server"]
     env_file: .env
@@ -20,7 +18,7 @@ services:
       dockerfile: ./docker/static/Dockerfile
     volumes:
       - "./static:/code/static"
-      - "./dist:/code/dist"
+      - "./src/dist:/code/src/dist"
 networks:
   default:
     external:

@@ -18,12 +18,6 @@ metadata:
   {{- end }}
 spec:
   rules:
-    - http:
-        paths:
-          - path: /*
-            backend:
-              serviceName: redirect
-              servicePort: use-annotation
   {{- range .Values.ingress.hosts }}
     - host: {{ . | quote }}
       http:

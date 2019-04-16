@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { launchProcess } = require('../lib/bpm');
-const { BPM_ENGINE_URL, BPM_PROCESS_DEFINITION_ID } = require('../config');
+const { BPM_ENGINE_URL, BPM_PROCESS_DEFINITION_KEY } = require('../config');
 
 // middleware that is specific to this router
 router.use(function logRequest(req, res, next) {
@@ -18,7 +18,7 @@ router.post('/purchase', function (req, res) {
 
     console.log(`purchasing item ${name} with price ${price}`);
 
-    const processPromise = launchProcess(BPM_ENGINE_URL, BPM_PROCESS_DEFINITION_ID, {
+    const processPromise = launchProcess(BPM_ENGINE_URL, BPM_PROCESS_DEFINITION_KEY, {
         orderValue: { value: price },
         orderName: { value: name },
     });
