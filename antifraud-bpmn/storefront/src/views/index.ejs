@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/site.css" />
+
+    <title><%= title %></title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-4 position-relative">
+                <div class="ActionLog">
+                    <ul class="ActionLog__list">
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-sm-8">
+                <div>
+                    <h1 class="Header Header--main"><%= header %></h1>
+                </div>
+
+                <div class="row">
+                    <!-- Products -->
+                    <% products.forEach(function(p) { %>
+                    <div class="col-sm-4">
+                        <div class="Product">
+                            <img class="Product__image" src="<%= p.image %>" />
+
+                            <div class="pt-2 px-3">
+                                <strong class="Product__name"><%= p.name %></strong>
+                                <strong class="Product__price d-block" data-val="<%= p.price %>"><%= formatPrice(p.price) %></strong>
+                                <p class="Product__desc pt-2"><%= p.description %></p>
+                            </div>
+
+                            <button class="btn btn-primary btn-block btn-buy py-2 mt-4">Buy</button>
+                        </div>
+                    </div>
+                    <% }) %>
+                </div>
+
+                <p class="Disclaimer pt-5">
+                    Not sure what you're looking at here (besides the most athletic and picturesque of pups)?
+                    Want to learn how to bridge the gap between business and engineering processes in a concrete way?
+                    Check out the blog post <a href="https://labs.meanpug.com/">here</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="Footer text-center">
+        an experiment by <a href="https://labs.meanpug.com">MeanPug Labs</a>
+    </div>
+
+    <script type="text/javascript" src="/static/site.min.js"></script>
+</body>
+</html>
