@@ -25,11 +25,25 @@ router.post('/purchase', function (req, res) {
 
     processPromise
         .then(function(resp) {
-            res.json({ processId: resp.id, processUrl: `${BPM_ENGINE_URL}/app/cockpit/default/#/process-instance/${resp.id}/runtime` });
+            const processInstance = `${BPM_ENGINE_URL}/app/cockpit/default/#/process-instance/${resp.id}/runtime`;
+            const tasklist = `${BPM_ENGINE_URL}/app/tasklist/default/`;
+
+            const messages = [
+                `Process with ID ${resp.id} launched`,
+                `Visit URL <a href="${processInstance}">${processInstance}</a> to explore the process`,
+                `Visit URL <a href="${tasklist}">${tasklist}</a> to view, claim, and complete assigned user tasks`,
+            ];
+
+            res.json({ processId: resp.id, messages });
         })
         .catch(function(err) {
             console.error(`got error ${err} launching promise`);
-            res.json({ processId: `error launching process: ${err}`, processUrl: '' });
+
+            const messages = [
+                `Got an error (${err}) attempting to launch the process`,
+            ];
+
+            res.json({ messages });
         });
 });
 

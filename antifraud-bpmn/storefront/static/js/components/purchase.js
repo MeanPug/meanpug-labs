@@ -3,7 +3,7 @@ const Purchase = Backbone.Model.extend({
         name: null,
         price: 0,
         processId: null,
-        processUrl: null
+        messages: []
     },
 
     url: '/api/purchase'

@@ -13,12 +13,6 @@ $('.Product').each(function() {
 purchase.on('change:processId', function() {
     console.log(`process ID is now ${purchase.get('processId')}`);
 
-    logs.add(new ActionLog({
-        message: `Process with ID ${purchase.get('processId')} launched`
-    }));
-
-    logs.add(new ActionLog({
-        message: `Visit URL <a href="${purchase.get('processUrl')}">${purchase.get('processUrl')}</a> to explore workflow`
-    }));
+    purchase.get('messages').forEach(message => logs.add(new ActionLog({ message })));
 });
 

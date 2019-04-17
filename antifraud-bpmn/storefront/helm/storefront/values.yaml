@@ -14,7 +14,7 @@ fullnameOverride: ""
 
 application:
   bpm_engine_url: http://bpm.labs.meanpug.com
-  bpm_process_definition_key: Order
+  bpm_process_definition_key: OrderProcess
 
 service:
   type: NodePort

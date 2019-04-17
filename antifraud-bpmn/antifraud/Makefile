@@ -1,6 +1,6 @@
 IMAGE_REPO := 289609572201.dkr.ecr.us-east-1.amazonaws.com/prod/labs-antifraud-process-engine
 IMAGE_TAG := latest
-PACKAGE_VER ?= 0.0.1-SNAPSHOT
+PACKAGE_VER ?= 0.0.2-SNAPSHOT
 
 .PHONY: build up down shell deploy docker-build docker-push aws-ecr
 
@@ -26,6 +26,6 @@ docker-push:
 aws-ecr:
 	$(shell aws ecr get-login --no-include-email)
 
-deploy: docker-build docker-push aws-ecr
+deploy: aws-ecr docker-build docker-push 
 	helm dep build helm/antifraud
-	helm upgrade --install antifraud-bpmns helm/antifraud
+	helm upgrade --install antifraud-bpmns helm/antifraud --force --recreate-pods
