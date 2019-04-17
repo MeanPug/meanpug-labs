@@ -7,6 +7,15 @@
   background: white;
   z-index: 2;
 
+  @include media-breakpoint-down(sm) {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 150px;
+    overflow: scroll;
+    border-top: solid 1px $gray-300;
+  }
+
   .ActionLog__list {
     list-style-type: none;
 
