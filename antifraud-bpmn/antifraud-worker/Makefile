@@ -18,7 +18,7 @@ shell:
 	docker run -v $(PWD)/src:/code/src --network antifraud_default --env-file .env --entrypoint "/bin/sh" -it $(IMAGE_NAME) --rm
 
 tag:
-	docker tag $(IMAGE_REPO):$(IMAGE_TAG) $(IMAGE_REPO):$(IMAGE_TAG)
+	docker tag $(IMAGE_NAME):$(IMAGE_TAG) $(IMAGE_REPO):$(IMAGE_TAG)
 
 push:
 	docker push $(IMAGE_REPO):$(IMAGE_TAG)

@@ -1,0 +1,34 @@
+# Default values for meanpug-minnow.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: 289609572201.dkr.ecr.us-east-1.amazonaws.com/prod/labs-antifraud-worker
+  tag: latest
+  pullPolicy: Always
+
+nameOverride: ""
+fullnameOverride: ""
+
+application:
+  bpm_engine_url: http://bpm.labs.meanpug.com/rest/
+
+mongo:
+  host: antifraud-bpmns-mongodb
+  port: 27017
+  username: antifraud_user
+  dbname: labs_antifraud
+
+service:
+  type: NodePort
+  port: 80
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

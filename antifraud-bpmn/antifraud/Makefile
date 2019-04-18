@@ -27,5 +27,6 @@ aws-ecr:
 	$(shell aws ecr get-login --no-include-email)
 
 deploy: aws-ecr docker-build docker-push 
+	helm dep update helm/antifraud
 	helm dep build helm/antifraud
 	helm upgrade --install antifraud-bpmns helm/antifraud --force --recreate-pods
