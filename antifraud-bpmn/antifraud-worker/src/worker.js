@@ -23,7 +23,7 @@ client.subscribe("antifraudActions", async function ({ task, taskService }) {
         password: config.MONGO_PASSWORD
     });
 
-    const db = await client.connect();
+    const db = await client.connect(config.MONGO_DBNAME);
 
     const collection = db.collection(config.MONGO_COLLECTION);
 

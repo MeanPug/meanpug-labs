@@ -1,4 +1,4 @@
-const { ActionLog, ActionLogs, ActionLogsView } = require('./components/action-logs');
+const { ActionLog, ActionLogs, ActionLogsView, poll } = require('./components/action-logs');
 const Purchase = require('./components/purchase');
 const ProductView = require('./components/products');
 
@@ -13,6 +13,7 @@ $('.Product').each(function() {
 purchase.on('change:processId', function() {
     console.log(`process ID is now ${purchase.get('processId')}`);
 
-    purchase.get('messages').forEach(message => logs.add(new ActionLog({ message })));
-});
+    logs.add(purchase.get('messages').map(message => new ActionLog({ message })));
 
+    poll(3000, purchase.get('processId'), messages => logs.add(messages.map(message => new ActionLog({ message }))));
+});

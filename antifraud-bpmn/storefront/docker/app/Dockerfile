@@ -1,5 +1,7 @@
 FROM node:10.13.0-alpine
 
+ENV DEBUG storefront:*
+
 RUN mkdir -p /code
 
 WORKDIR /code

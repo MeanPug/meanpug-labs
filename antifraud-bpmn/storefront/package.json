@@ -42,7 +42,8 @@
     "request": "^2",
     "request-promise": "^4",
     "rimraf": "^2.6.2",
-    "underscore": "^1.9"
+    "underscore": "^1.9",
+    "mongodb": "^3.2.3"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
