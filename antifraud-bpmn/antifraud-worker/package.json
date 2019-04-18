@@ -1,0 +1,30 @@
+{
+  "name": "antifraud-workers",
+  "version": "1.0.0",
+  "description": "Workers for processing antifraud process tasks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MeanPug/meanpug-labs.git"
+  },
+  "keywords": [
+    "camunda",
+    "meanpug",
+    "node"
+  ],
+  "author": "Bobby Steinbach",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MeanPug/meanpug-labs/issues"
+  },
+  "homepage": "https://github.com/MeanPug/meanpug-labs#readme",
+  "dependencies": {
+    "aws-sdk": "^2.439.0",
+    "camunda-external-task-client-js": "^1.1.1",
+    "debug": "^4.1.1",
+    "mongodb": "^3.2.3"
+  }
+}

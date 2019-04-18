@@ -12,6 +12,15 @@ services:
       MYSQL_USER: camunda_user
       MYSQL_PASSWORD: letmein
 
+  mongo:
+    image: mongo:3.6.12-xenial
+    restart: always
+    volumes:
+      - "./mongo_data:/data/db"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+
   camunda:
       build:
         context: .
