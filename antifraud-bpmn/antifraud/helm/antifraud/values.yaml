@@ -25,13 +25,6 @@ mysql:
   mysqlUser: camunda_user
   existingSecret: antifraud-bpmns-mysql
 
-mongo:
-  image:
-    tag: 3.6.12-xenial
-  existingSecret: antifraud-bpmns-mongodb
-  mongodbUsername: antifraud_user
-  mongodbDatabase: labs_antifraud
-
 ingress:
   enabled: true
   annotations:

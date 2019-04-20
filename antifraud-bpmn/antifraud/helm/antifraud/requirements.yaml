@@ -2,6 +2,4 @@ dependencies:
   - name: mysql
     version: "0.15.0"
     repository: "@stable"
-  - name: mongodb
-    version: "5.16.1"
-    repository: "@stable"
+  
