@@ -11,27 +11,22 @@ services:
       MYSQL_DATABASE: camunda
       MYSQL_USER: camunda_user
       MYSQL_PASSWORD: letmein
-
-  mongo:
-    image: mongo:3.6.12-xenial
-    restart: always
-    volumes:
-      - "./mongo_data:/data/db"
-    ports:
-      - 27017:27017
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: example
-      MONGO_INITDB_DATABASE: labs_antifraud
+    networks:
+      - dev-net
 
   camunda:
-      build:
-        context: .
-      volumes:
-        - "./src:/antifraud/src"
-      ports:
-        - 8080:8080
-      env_file: .env.local
-      depends_on:
-        - mysql
+    build:
+      context: .
+    volumes:
+      - "./src:/antifraud/src"
+    ports:
+      - 8080:8080
+    env_file: .env.local
+    depends_on:
+      - mysql
+    networks:
+      - dev-net    
+networks:
+  dev-net:
+    driver: bridge
 

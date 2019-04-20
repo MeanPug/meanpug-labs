@@ -4,9 +4,11 @@ import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.ExecutionListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Component;
 
 import com.labs.meanpug.bpm.ActionLogsWriter;
 
+@Component
 public class FraudChecksCompleteListener implements ExecutionListener {	
 	@Autowired
 	private Environment env;

@@ -8,14 +8,14 @@ build:
 	docker build -t $(IMAGE_NAME) .
 
 up:
-	docker run -v $(PWD)/src:/code/src --network antifraud_default --env-file .env --rm -itd $(IMAGE_NAME)
+	docker run -v $(PWD)/src:/code/src --network antifraud_dev-net --env-file .env --rm -itd $(IMAGE_NAME)
 
 down:
 	$(eval RUNNING=$(shell docker ps -aqf "ancestor=$(IMAGE_NAME)"))
 	for proc in $(RUNNING) ; do docker stop $$proc ; done
 
 shell:
-	docker run -v $(PWD)/src:/code/src --network antifraud_default --env-file .env --entrypoint "/bin/sh" -it $(IMAGE_NAME) --rm
+	docker run -v $(PWD)/src:/code/src --network antifraud_dev-net --env-file .env --entrypoint "/bin/sh" -it $(IMAGE_NAME) --rm
 
 tag:
 	docker tag $(IMAGE_NAME):$(IMAGE_TAG) $(IMAGE_REPO):$(IMAGE_TAG)

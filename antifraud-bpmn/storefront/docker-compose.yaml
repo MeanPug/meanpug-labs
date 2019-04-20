@@ -11,6 +11,22 @@ services:
     entrypoint: npm
     command: ["run", "dev-server"]
     env_file: .env
+    networks:
+      - antifraud_dev-net
+
+  mongo:
+    image: mongo:3.6.12-xenial
+    restart: always
+    volumes:
+      - "./mongo_data:/data/db"
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_DATABASE: labs_antifraud
+    networks:
+      - antifraud_dev-net
 
   static:
     build:
@@ -20,7 +36,5 @@ services:
       - "./static:/code/static"
       - "./src/dist:/code/src/dist"
 networks:
-  default:
-    external:
-      name: antifraud_default
-
+  antifraud_dev-net:
+    external: true
