@@ -8,7 +8,7 @@ build:
 	docker build -t $(IMAGE_NAME) .
 
 up:
-	docker run -v $(PWD)/src:/code/src --network antifraud_dev-net --env-file .env --rm -itd $(IMAGE_NAME)
+	docker run -v $(CURDIR)/src:/code/src --network antifraud_dev-net --env-file .env --rm -itd $(IMAGE_NAME)
 
 down:
 	$(eval RUNNING=$(shell docker ps -aqf "ancestor=$(IMAGE_NAME)"))
