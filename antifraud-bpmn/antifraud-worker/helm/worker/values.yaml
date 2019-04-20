@@ -16,9 +16,9 @@ application:
   bpm_engine_url: http://bpm.labs.meanpug.com/rest/
 
 mongo:
-  host: antifraud-bpmns-mongodb
+  host: antifraud-storefront-mongodb
   port: 27017
-  username: antifraud_user
+  username: root
   dbname: labs_antifraud
 
 service:

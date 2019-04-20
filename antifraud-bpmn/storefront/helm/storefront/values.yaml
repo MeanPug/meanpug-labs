@@ -17,10 +17,9 @@ application:
   bpm_process_definition_key: OrderProcess
 
 mongo:
-  image:
-    tag: 3.6.12-xenial
   mongodbDatabase: labs_antifraud
-  existingSecret:
+  existingSecret: antifraud-mongodb
+  mongodbUsername: root
 
 service:
   type: NodePort

@@ -63,6 +63,12 @@
     	<artifactId>camunda-bpm-spring-boot-starter-rest</artifactId>
     	<version>3.2.0</version>
     </dependency>
+    
+    <dependency>
+    	<groupId>org.mongodb</groupId>
+    	<artifactId>mongodb-driver-sync</artifactId>
+    	<version>3.10.1</version>
+    </dependency>
   </dependencies>
 
    <build>

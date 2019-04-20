@@ -31,4 +31,6 @@ aws-login:
 	$(shell aws ecr get-login --no-include-email)
 
 deploy: aws-login docker-build docker-tag docker-push
+	helm dep update helm/storefront
+	helm dep build helm/storefront
 	helm upgrade --install antifraud-storefront helm/storefront -f helm/prod-values.yaml --force --recreate-pods

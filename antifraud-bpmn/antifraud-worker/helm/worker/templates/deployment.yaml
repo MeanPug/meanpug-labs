@@ -35,7 +35,7 @@ spec:
             - name: MONGO_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: antifraud-bpmns-mongodb
+                  name: antifraud-mongodb
                   key: mongodb-root-password
             - name: MONGO_DBNAME
               value: {{ .Values.mongo.dbname | quote }}

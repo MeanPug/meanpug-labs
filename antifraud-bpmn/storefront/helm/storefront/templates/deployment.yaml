@@ -28,6 +28,19 @@ spec:
               value: {{ .Values.application.bpm_engine_url | quote }}
             - name: BPM_PROCESS_DEFINITION_KEY
               value: {{ .Values.application.bpm_process_definition_key | quote }}
+            - name: MONGO_HOST
+              value: {{ include "storefront.fullname" . }}-mongodb
+            - name: MONGO_PORT
+              value: "27017"
+            - name: MONGO_USERNAME
+              value: {{ .Values.mongo.mongodbUsername }}
+            - name: MONGO_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.mongo.existingSecret }}
+                  key: mongodb-root-password
+            - name: MONGO_DBNAME
+              value: {{ .Values.mongo.mongodbDatabase }}
           ports:
             - containerPort: 3000
               protocol: TCP
