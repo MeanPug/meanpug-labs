@@ -7,4 +7,8 @@ down:
 	+$(MAKE) -C storefront down
 	+$(MAKE) -C antifraud-worker down
 	+$(MAKE) -C antifraud down
-	
+
+deploy:
+	+$(MAKE) -C storefront deploy
+	+$(MAKE) -C antifraud-worker deploy
+	+$(MAKE) -C antifraud deploy

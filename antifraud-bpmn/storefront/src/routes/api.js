@@ -41,8 +41,8 @@ router.post('/purchase', function (req, res) {
 
             const messages = [
                 `Process with ID ${resp.id} launched`,
-                `Visit URL <a href="${processInstance}">${processInstance}</a> to explore the process`,
-                `Visit URL <a href="${tasklist}">${tasklist}</a> to view, claim, and complete assigned user tasks`,
+                `Visit URL <a href="${processInstance}" target="_blank">${processInstance}</a> to explore the process`,
+                `Visit URL <a href="${tasklist}" target="_blank">${tasklist}</a> to view, claim, and complete assigned user tasks`,
             ];
 
             res.json({ processId: resp.id, messages });
