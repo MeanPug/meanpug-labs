@@ -25,6 +25,11 @@ mysql:
   mysqlUser: camunda_user
   existingSecret: antifraud-bpmns-mysql
 
+mongo:
+  host: antifraud-storefront-mongodb  
+  username: root
+  db: labs_antifraud
+
 ingress:
   enabled: true
   annotations:

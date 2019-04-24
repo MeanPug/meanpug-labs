@@ -35,6 +35,17 @@ spec:
                 secretKeyRef:
                   name: {{ include "antifraud.fullname" . }}-mysql
                   key: mysql-password
+            - name: MONGO_HOST
+              value: {{ .Values.mongo.host }}
+            - name: MONGO_DB
+              value: {{ .Values.mongo.db }}
+            - name: MONGO_USERNAME
+              value: {{ .Values.mongo.username }}
+            - name: MONGO_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: antifraud-mongodb
+                  key: mongodb-root-password
           command: ["java"]
           args: ["-jar", "-Dspring.profiles.active=release", "target/{{ .Values.app.version }}.jar"]
           ports:
