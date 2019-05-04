@@ -1,16 +1,16 @@
 const products = [{
     name: 'Overlord Pug',
-    description: 'If you want ',
+    description: 'Bow down mere mortals, make way for a God.',
     image: 'http://s3.amazonaws.com/labs.meanpug.com/uploads/antifraud/overlord-pug.jpg',
     price: 11000
 }, {
     name: 'Drunk Pug',
-    description: 'Her favorite drink is a',
+    description: 'Ohmygawdwheresthebar',
     image: 'http://s3.amazonaws.com/labs.meanpug.com/uploads/antifraud/drunk-pug.jpg',
     price: 23000
 }, {
     name: 'Babushka Pug',
-    description: 'In mother Russia, pug walk you!',
+    description: 'в россии мопс гуляет с тобой',
     image: 'http://s3.amazonaws.com/labs.meanpug.com/uploads/antifraud/babushka-pug.jpg',
     price: 9000
 }];
