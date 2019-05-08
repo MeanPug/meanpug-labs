@@ -9,15 +9,8 @@ The package is composed of three services:
 * `storefront` - an example ecomm frontend (and pug paraphernalia paradise)
 
 ## Running Locally
-The only requirement to run locally is Docker. You can launch the services in parts or all at once, whichever floats your 
-boat (no coupling *cough cough*). To spin up everything at once, simply:
+The only requirement to run locally is Docker. To spin up, simply:
 
 ```bash
 make
-```
-
-To go one-by-one, `cd` into each subdirectory and run:
-
-```bash
-make up
 ```
