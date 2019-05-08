@@ -1,5 +1,5 @@
 # Introduction
-The services in this package together compose a naive process implementation to the problem of antifraud detection and processing which combines online and offline processes. To find a more thorough (read: more betterrer) description of the motivations, background, and architecture, you really ought to read our blog post on [Business Process as Code in Modern Web Applications](https://labs.meanpug.com).
+A sample solution to the problem of antifraud detection and processing in a way which combines online and offline processes. To find a more thorough (read: more betterrer) description of the motivations, background, and architecture, you really ought to read our blog post on [Business Process as Code in Modern Web Applications](https://labs.meanpug.com).
 
 ## Services
 The package is composed of three services:
