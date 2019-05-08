@@ -16,13 +16,13 @@ module.exports = function(grunt) {
 		},
 
 		watch: {
-			options: {
-				atBegin: true
-			},
 			css: {
-				files: '**/*.scss',
-				tasks: ['sass']
-			}
+                files: '**/*.scss',
+                tasks: ['sass'],
+                options: {
+                    atBegin: true
+                }
+            }
 		}
 	});
 
