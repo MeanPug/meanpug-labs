@@ -7,8 +7,8 @@ IMAGE_NAME := test/antifraud-worker
 build:
 	docker build -t $(IMAGE_NAME) .
 
-up:
-	docker run -v $(CURDIR)/src:/code/src --network antifraud_dev-net --env-file .env --rm -itd $(IMAGE_NAME)
+up: build
+	docker run -v $(CURDIR)/src:/code/src --network antifraud_dev-net --env-file .env.default --rm -itd $(IMAGE_NAME)
 
 down:
 	$(eval RUNNING=$(shell docker ps -aqf "ancestor=$(IMAGE_NAME)"))
