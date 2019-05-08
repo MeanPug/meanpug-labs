@@ -6,7 +6,7 @@ The package is composed of three services:
 
 * `antifraud` - the actual process engine, embedded in a Spring Boot application
 * `antifraud-worker` - a dead-stupid worker process listening and processing events
-* `antifraud-storefront` - an example ecomm frontend (and pug paraphernalia paradise)
+* `storefront` - an example ecomm frontend (and pug paraphernalia paradise)
 
 ## Running Locally
 The only requirement to run locally is Docker. You can launch the services in parts or all at once, whichever floats your 
