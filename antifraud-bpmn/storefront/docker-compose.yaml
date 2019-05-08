@@ -10,7 +10,7 @@ services:
       - "./src:/code/src"
     entrypoint: npm
     command: ["run", "dev-server"]
-    env_file: .env
+    env_file: .env.default
     networks:
       - antifraud_dev-net
 
