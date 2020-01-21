@@ -1,0 +1,17 @@
+{
+    "name": "Merge Sheets",
+    "version": "1.0",
+    "manifest_version": 4,
+    "description": "Merge all sheets in the current spreadsheet into the currently active sheet",
+    "icons": {
+        "128": "logo_128.png",
+        "16": "logo_16.png"
+    },
+    "container": ["GOOGLE_DRIVE"],
+    "api_console_project_id": "87722081021",
+    "app": {
+        "background": {
+            "persistent": false
+        }
+    }
+}
